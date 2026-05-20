@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Confirmed — Lumière</title>
+<link rel="stylesheet" href="/css/style.css">
+<style>
+.success-wrap{max-width:600px;margin:80px auto;padding:0 24px;text-align:center}
+.success-icon{font-size:72px;margin-bottom:24px;animation:pop 0.4s ease}
+@keyframes pop{0%{transform:scale(0.5);opacity:0}100%{transform:scale(1);opacity:1}}
+.success-title{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:var(--dark);margin-bottom:12px}
+.success-title em{font-style:italic;color:var(--gold-dark)}
+.success-desc{font-size:13px;color:var(--muted);font-weight:300;line-height:1.8;margin-bottom:32px}
+.order-box{background:var(--card-bg);border:1px solid var(--border);padding:28px;text-align:left;margin-bottom:32px}
+.order-detail-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px}
+.order-detail-row:last-child{border:none}
+.order-detail-row span:first-child{color:var(--muted);font-weight:300}
+.order-detail-row span:last-child{color:var(--dark);font-weight:400}
+.order-items-list{margin:16px 0}
+.order-item-mini{display:flex;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--border);font-size:13px}
+.order-item-mini:last-child{border:none}
+.item-mini-emoji{font-size:24px;background:linear-gradient(135deg,#F5EFE0,#EDE3CC);width:40px;height:40px;display:flex;align-items:center;justify-content:center}
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="logo">Lu<span>miè</span>re</a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li><li><a href="/shop">Shop</a></li></ul>
+  <div class="nav-actions">
+    <button class="nav-cart-btn" onclick="window.location='/cart'">Cart <span class="cart-count nav-badge">0</span></button>
+  </div>
+</nav>
+
+<div class="success-wrap">
+  <div class="success-icon">✦</div>
+  <h1 class="success-title">Order <em>Confirmed!</em></h1>
+  <p class="success-desc">Thank you for shopping with Lumière. Your order has been received and is being prepared with care. You will be contacted shortly to confirm delivery details.</p>
+  <div class="order-box" id="orderBox">
+    <div style="text-align:center;padding:20px;color:var(--muted)">Loading order details...</div>
+  </div>
+  <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+    <a href="/shop" class="btn btn-dark">Continue Shopping</a>
+    <a href="/account" class="btn btn-outline">My Orders</a>
+  </div>
+</div>
+
+<script src="/js/app.js"></script>
+<script>
+async function loadOrder() {
+  const id = new URLSearchParams(window.location.search).get('id');
+  if (!id) { document.getElementById('orderBox').innerHTML = '<p style="text-align:center;color:var(--muted)">Order not found</p>'; return; }
+  const data = await API.get(`/api/orders/${id}`);
+  if (!data.order) return;
+  const o = data.order;
+  const statusMap = {pending:'Pending Confirmation',processing:'Processing',shipped:'Shipped',delivered:'Delivered',cancelled:'Cancelled'};
+  document.getElementById('orderBox').innerHTML = `
+    <div style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:var(--dark);margin-bottom:16px">Order #${o.id}</div>
+    <div class="order-detail-row"><span>Status</span><span class="status-badge status-${o.status}">${statusMap[o.status]||o.status}</span></div>
+    <div class="order-detail-row"><span>Customer</span><span>${o.guest_name || 'You'}</span></div>
+    <div class="order-detail-row"><span>Delivery To</span><span>${o.shipping_address}</span></div>
+    <div class="order-detail-row"><span>Payment</span><span style="text-transform:capitalize">${o.payment_method === 'cod' ? 'Cash on Delivery' : o.payment_method}</span></div>
+    <div class="order-detail-row"><span>Date</span><span>${new Date(o.created_at).toLocaleDateString('en-PK',{day:'numeric',month:'long',year:'numeric'})}</span></div>
+    <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--border)">
+      <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:400;margin-bottom:12px">Items Ordered</div>
+      <div class="order-items-list">
+        ${(o.items||[]).map(item => `
+          <div class="order-item-mini">
+            <div class="item-mini-emoji">${item.emoji}</div>
+            <div style="flex:1"><div style="font-weight:400;color:var(--dark)">${item.name}</div><div style="font-size:11px;color:var(--muted)">Qty: ${item.quantity}</div></div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:16px">Rs ${Number(item.price*item.quantity).toLocaleString()}</div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;padding-top:16px;border-top:1px solid var(--border);margin-top:8px">
+      <span style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)">Total Paid</span>
+      <span style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:500;color:var(--dark)">Rs ${Number(o.total).toLocaleString()}</span>
+    </div>
+  `;
+}
+loadOrder();
+</script>
+</body>
+</html>

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Journal — Lumière Fine Jewellery</title>
+<meta name="description" content="Read expert jewellery guides, care tips and trend reports from Lumière Fine Jewellery.">
+<meta name="robots" content="index, follow">
+<meta property="og:site_name" content="Lumière Fine Jewellery">
+<meta property="og:type" content="article">
+<meta property="og:title" id="og-title" content="Journal — Lumière">
+<meta property="og:description" id="og-desc" content="Expert jewellery guides from Lumière Fine Jewellery.">
+<meta property="og:image" id="og-image" content="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=1200&q=85">
+<meta property="og:url" id="og-url" content="">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" id="tw-title" content="Journal — Lumière">
+<meta name="twitter:description" id="tw-desc" content="Expert jewellery guides from Lumière.">
+<meta name="twitter:image" id="tw-image" content="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=1200&q=85">
+<link rel="canonical" id="canonical-link" href="">
+<link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+.post-hero{background:var(--dark);position:relative;overflow:hidden;min-height:380px;display:flex;align-items:flex-end}
+.post-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.35}
+.post-hero-content{position:relative;z-index:2;padding:48px 4% 52px;max-width:760px}
+.post-tag{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:400;margin-bottom:14px}
+.post-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,58px);font-weight:300;color:#FAF0DC;line-height:1.15}
+.post-meta{font-size:11px;color:rgba(255,255,255,0.45);font-weight:300;margin-top:16px;display:flex;gap:14px}
+.post-body{max-width:720px;margin:0 auto;padding:56px 4%}
+.post-body h2{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:400;color:var(--dark);margin:36px 0 14px;line-height:1.25}
+.post-body h3{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:var(--dark);margin:28px 0 10px}
+.post-body p{font-size:14px;color:var(--text);line-height:1.9;font-weight:300;margin-bottom:18px}
+.post-body ul,.post-body ol{padding-left:20px;margin-bottom:18px}
+.post-body li{font-size:14px;color:var(--text);line-height:1.8;font-weight:300;margin-bottom:6px}
+.post-body blockquote{border-left:3px solid var(--gold);padding:14px 20px;margin:28px 0;background:rgba(201,168,76,0.05)}
+.post-body blockquote p{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:var(--dark);margin:0;font-style:italic}
+.post-body strong{font-weight:500;color:var(--dark)}
+.post-cta{background:var(--dark);margin:48px 0;padding:36px;text-align:center}
+.post-cta h3{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:#FAF0DC;margin-bottom:10px}
+.post-cta p{color:rgba(255,255,255,0.5);font-size:13px;font-weight:300;margin-bottom:20px}
+.share-section{border-top:1px solid var(--border);padding-top:28px;margin-top:40px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.share-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:400}
+.share-btn-post{padding:8px 16px;font-size:11px;text-decoration:none;color:#fff;letter-spacing:1px;display:inline-flex;align-items:center}
+.back-link{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);padding:56px 4% 0;text-decoration:none;transition:color 0.2s}
+.back-link:hover{color:var(--gold-dark)}
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="logo">Lu<span>miè</span>re</a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/shop">Shop</a></li>
+    <li><a href="/blog" class="active">Journal</a></li>
+    <li><a href="/account">Account</a></li>
+    <li id="adminNavItem" style="display:none"><a href="/admin" style="color:var(--gold)">Admin ✦</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="/account" class="nav-icon-btn auth-hide">👤</a>
+    <a href="/account" class="nav-icon-btn auth-show">👤 <span class="user-name"></span></a>
+    <button class="nav-cart-btn" onclick="window.location='/cart'">Cart <span class="cart-count nav-badge">0</span></button>
+  </div>
+</nav>
+
+<a href="/blog" class="back-link">← Back to Journal</a>
+
+<div id="postContainer">
+  <div style="text-align:center;padding:100px 20px;color:var(--muted)">Loading article…</div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="logo" style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;color:var(--gold-light);letter-spacing:4px;text-transform:uppercase">Lu<em style="font-style:italic">miè</em>re</span>
+      <p style="margin-top:14px">Handcrafted fine jewellery from Lahore, Pakistan.</p>
+    </div>
+    <div class="footer-col"><h4>Shop</h4><ul>
+      <li><a href="/shop?category=bracelets">Bracelets</a></li>
+      <li><a href="/shop?category=rings">Rings</a></li>
+      <li><a href="/shop?category=bangles">Bangles</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Journal</h4><ul>
+      <li><a href="/blog">All Posts</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Help</h4><ul>
+      <li><a href="#">Contact</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Lumière Fine Jewellery. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="/js/app.js"></script>
+<script>
+const STATIC_POSTS = {
+  'how-to-care-for-925-sterling-silver': {
+    title: 'How to Care for Your 925 Sterling Silver Jewellery',
+    excerpt: 'Sterling silver naturally tarnishes over time — but with the right care routine, your pieces can stay brilliant for decades.',
+    focus_keyword: '925 sterling silver care',
+    tag: 'Care Tips',
+    read_time: 5,
+    author: 'Lumière Team',
+    image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=1400&q=85&auto=format&fit=crop',
+    created_at: '2025-01-15',
+    content: `<h2>Why Does Sterling Silver Tarnish?</h2>
+<p>925 sterling silver contains 92.5% pure silver and 7.5% other metals (usually copper). Copper reacts with oxygen and sulphur compounds in the air, forming a dark layer known as tarnish. This is completely natural — and completely reversible.</p>
+<blockquote><p>"A tarnished piece is not a damaged piece — it simply needs a little care."</p></blockquote>
+<h2>Daily Care Habits That Make a Big Difference</h2>
+<ul>
+  <li><strong>Last on, first off:</strong> Put jewellery on after applying perfume, lotion and hairspray. Remove it before showering, swimming, or exercising.</li>
+  <li><strong>Wipe after wearing:</strong> A quick polish with a soft cloth after each wear removes oils and slows tarnishing.</li>
+  <li><strong>Store properly:</strong> Keep pieces in an airtight pouch or box. Silica gel sachets inside the box absorb moisture.</li>
+</ul>
+<h2>How to Clean Tarnished Silver at Home</h2>
+<ol>
+  <li>Mix a few drops of mild dish soap in warm water.</li>
+  <li>Dip a soft toothbrush and gently scrub the piece in circular motions.</li>
+  <li>Rinse thoroughly under clean water.</li>
+  <li>Pat dry with a lint-free cloth — never rub aggressively.</li>
+  <li>For heavy tarnish: use a commercial silver polishing cloth.</li>
+</ol>
+<h2>What to Avoid</h2>
+<ul>
+  <li>Chlorine (pools and jacuzzis cause permanent damage)</li>
+  <li>Bleach and harsh household cleaners</li>
+  <li>Toothpaste (too abrasive for fine silver)</li>
+  <li>Ultrasonic cleaners (can damage stones and soft settings)</li>
+</ul>
+<div class="post-cta"><h3>Shop Our 925 Sterling Silver Collection</h3><p>Each piece is carefully crafted and comes with a care guide.</p><a href="/shop?category=rings" class="btn btn-gold">Shop Silver Rings</a></div>
+<h2>Professional Polishing</h2>
+<p>We offer complimentary lifetime polishing on all Lumière pieces. Simply bring or ship your jewellery to us and our artisans will restore its original brilliance — no charge, no questions asked.</p>`
+  },
+  'pakistani-wedding-jewellery-guide': {
+    title: 'The Ultimate Pakistani Wedding Jewellery Guide for 2025',
+    excerpt: 'From mehndi to barat, discover how to style traditional and contemporary jewellery for each function.',
+    focus_keyword: 'Pakistani wedding jewellery',
+    tag: 'Style Guide',
+    read_time: 8,
+    author: 'Lumière Team',
+    image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=1400&q=85&auto=format&fit=crop',
+    created_at: '2025-02-10',
+    content: `<h2>Function-by-Function Guide</h2>
+<p>Pakistani weddings are multi-day celebrations — and each function calls for a distinct jewellery look. Here's how to plan your jewellery wardrobe from mehndi to walima.</p>
+<h3>Mehndi</h3>
+<p>Keep it light and playful. Colourful bangles, delicate gold chains, and small hoop earrings complement the festive yellows, greens, and oranges worn at mehndi functions.</p>
+<h3>Mayun / Dholki</h3>
+<p>Gold-toned pieces work beautifully here. Stack gold bangles, wear a simple necklace, and let your outfit do the talking.</p>
+<h3>Barat</h3>
+<p>Your barat look deserves the full ensemble. A classic set of earrings, a statement necklace, and layered bangles create the regal look every bride deserves.</p>
+<h3>Walima</h3>
+<p>Pastels and lighter outfits at walima pair beautifully with 925 silver or white-gold pieces. Consider minimalist pieces that photograph beautifully.</p>
+<blockquote><p>"The right jewellery doesn't just complete an outfit — it becomes the memory."</p></blockquote>
+<h2>The Must-Have Pieces</h2>
+<ul>
+  <li>A statement necklace for barat</li>
+  <li>Stackable bangles (gold for mehndi, silver for walima)</li>
+  <li>Drop earrings in coordinating metal</li>
+  <li>A delicate ring or two for the hands with mehndi</li>
+</ul>
+<div class="post-cta"><h3>Shop Bridal-Ready Pieces</h3><p>Handcrafted jewellery designed to be part of your special moments.</p><a href="/shop" class="btn btn-gold">Browse the Collection</a></div>`
+  },
+  'gold-vs-silver-jewellery-which-to-choose': {
+    title: 'Gold vs Silver Jewellery: Which Should You Choose?',
+    excerpt: 'Both gold and silver have timeless appeal — but they suit different skin tones, outfits, and occasions.',
+    focus_keyword: 'gold vs silver jewellery',
+    tag: 'Style Guide',
+    read_time: 6,
+    author: 'Lumière Team',
+    image: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=1400&q=85&auto=format&fit=crop',
+    created_at: '2025-03-05',
+    content: `<h2>Skin Tone: The First Consideration</h2>
+<p><strong>Warm skin tones</strong> (golden, olive, brown) tend to radiate with yellow gold. The warmth of 22K gold complements these tones naturally.</p>
+<p><strong>Cool skin tones</strong> (pink, red, bluish undertones) look stunning with 925 sterling silver. The cool bright finish creates a natural contrast that makes the skin glow.</p>
+<p><strong>Neutral skin tones</strong> can wear both — lucky you!</p>
+<h2>Outfit Colour Palette</h2>
+<ul>
+  <li><strong>Earthy tones (rust, mustard, olive, beige):</strong> Gold is your best friend.</li>
+  <li><strong>Cool tones (navy, grey, pastels, white):</strong> Silver ties the look together.</li>
+  <li><strong>Black:</strong> Both work brilliantly — gold for drama, silver for sleek modernity.</li>
+</ul>
+<h2>Occasion Matters</h2>
+<p>Gold jewellery traditionally carries cultural weight at formal events, weddings, and religious occasions in Pakistan. Silver tends to feel more contemporary and is growing in popularity for office wear and casual elegance.</p>
+<h2>Which is More Durable?</h2>
+<p>Both 22K gold and 925 sterling silver are durable — but they have different maintenance needs. Gold requires almost no maintenance; silver needs regular polishing to prevent tarnish.</p>
+<blockquote><p>"The best jewellery is the piece you'll reach for every day — that's personal."</p></blockquote>
+<div class="post-cta"><h3>Explore Both Collections</h3><p>Discover handcrafted pieces in 22K gold and 925 sterling silver.</p><a href="/shop" class="btn btn-gold">Shop Now</a></div>`
+  },
+  'top-jewellery-trends-pakistan-2025': {
+    title: 'Top Jewellery Trends in Pakistan for 2025',
+    excerpt: 'From minimalist stackable rings to bold statement necklaces — the jewellery trends taking Pakistan by storm.',
+    focus_keyword: 'jewellery trends Pakistan 2025',
+    tag: 'Trends',
+    read_time: 4,
+    author: 'Lumière Team',
+    image: 'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=1400&q=85&auto=format&fit=crop',
+    created_at: '2025-03-28',
+    content: `<h2>1. Stackable Minimalism</h2>
+<p>Thin stacking rings — worn 3 to 5 on one hand — are everywhere in 2025. The key is mixing metals: pair a gold band with a silver signet and a plain band for a curated, intentional look.</p>
+<h2>2. Chunky Chain Necklaces</h2>
+<p>Bold, oversized chain necklaces are a statement in themselves. Wear a single chain with a plain kurta or tee for maximum impact.</p>
+<h2>3. Layered Delicate Necklaces</h2>
+<p>On the opposite end: layering 2–3 delicate chains at different lengths. A small pendant on the shortest, a plain chain in the middle, a slightly longer one at the base.</p>
+<h2>4. Sculptural Bangles</h2>
+<p>Geometric and sculptural bangles in 925 silver — with asymmetric shapes, hammered textures, or open cuff designs — are replacing traditional round bangles in everyday wear.</p>
+<h2>5. Coloured Stone Accents</h2>
+<p>Semi-precious stones — turquoise, garnet, amethyst — are being woven into minimalist settings. A small turquoise ring or a garnet pendant adds personality without overwhelming.</p>
+<blockquote><p>"2025 is the year of intentional dressing — every accessory tells a story."</p></blockquote>
+<div class="post-cta"><h3>Shop the Trends</h3><p>Find pieces that match every 2025 trend in our curated collection.</p><a href="/shop" class="btn btn-gold">Browse Collection</a></div>`
+  },
+  'jewellery-gifting-guide-eid': {
+    title: "The Eid Jewellery Gifting Guide: Pieces She'll Treasure Forever",
+    excerpt: "Eid is the perfect occasion to gift something timeless. Our guide to choosing jewellery that suits every personality.",
+    focus_keyword: 'Eid jewellery gift Pakistan',
+    tag: 'Gifting',
+    read_time: 5,
+    author: 'Lumière Team',
+    image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=1400&q=85&auto=format&fit=crop',
+    created_at: '2025-04-02',
+    content: `<h2>Why Jewellery Makes the Perfect Eid Gift</h2>
+<p>Unlike clothes that may not fit or perfumes that may not suit, fine jewellery is personal yet universally appreciated. It carries emotion, lasts for years, and grows in sentimental value over time.</p>
+<h2>By Personality</h2>
+<h3>For the Classic Woman</h3>
+<p>A simple gold bangle or pearl-drop earrings. Timeless, elegant, never out of style. She'll wear them every day.</p>
+<h3>For the Minimalist</h3>
+<p>A delicate silver ring or a dainty pendant necklace. She prefers understated — give her something she can wear with anything.</p>
+<h3>For the Statement-Maker</h3>
+<p>A bold cuff bracelet or layered necklace set. She loves jewellery that starts conversations.</p>
+<h3>For the Bride-to-Be</h3>
+<p>A jewellery set — earrings and necklace — that she can wear to her wedding events. Invest in a piece she'll keep forever.</p>
+<h2>Budget Guide</h2>
+<ul>
+  <li><strong>Rs 2,000–5,000:</strong> Delicate silver rings, small pendants</li>
+  <li><strong>Rs 5,000–12,000:</strong> Statement earrings, silver bangles</li>
+  <li><strong>Rs 12,000–30,000:</strong> Gold bangles, necklace sets</li>
+  <li><strong>Rs 30,000+:</strong> Full bridal sets, 22K gold pieces</li>
+</ul>
+<blockquote><p>"The best gift is one chosen with thought — not one chosen with budget."</p></blockquote>
+<div class="post-cta"><h3>Gift Wrapped, With Love</h3><p>All Lumière orders come in a complimentary luxury gift box — ready to give.</p><a href="/shop" class="btn btn-gold">Shop Eid Gifts</a></div>`
+  },
+  'how-to-layer-necklaces-like-a-pro': {
+    title: 'How to Layer Necklaces Like a Pro',
+    excerpt: 'The art of layering necklaces transforms any outfit. Learn chain lengths, mixing metals, and pendant sizing.',
+    focus_keyword: 'how to layer necklaces',
+    tag: 'Style Guide',
+    read_time: 5,
+    author: 'Lumière Team',
+    image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=1400&q=85&auto=format&fit=crop',
+    created_at: '2025-04-20',
+    content: `<h2>The Length Rule</h2>
+<p>The golden rule of necklace layering: each chain should differ by at least 2 inches. A typical layering trio uses lengths of 16", 18", and 20". This creates visible separation and prevents tangling.</p>
+<h2>Start with an Anchor Piece</h2>
+<p>Choose one statement piece — usually a pendant or locket — as your anchor. Build the other layers around it with simpler chains.</p>
+<h2>Mixing Metals: Yes or No?</h2>
+<p>Absolutely yes — in 2025, mixed metals are intentional and modern. The key is to commit: if you mix gold and silver, ensure at least two pieces of each to create balance rather than looking accidental.</p>
+<h2>Neckline Matters</h2>
+<ul>
+  <li><strong>V-neck:</strong> Mirror the V with your layering. A short pendant that follows the V-shape, longer chains below.</li>
+  <li><strong>Crew neck / round neck:</strong> Start above the neckline with a 14–16" chain and layer down.</li>
+  <li><strong>Off-shoulder / strapless:</strong> Go bolder — this is the moment for a statement chain.</li>
+</ul>
+<h2>Pendants vs Plain Chains</h2>
+<p>Alternate: don't stack three pendants together (too busy) or three plain chains (too minimal). The ideal trio: plain chain + small pendant + bold statement.</p>
+<blockquote><p>"Layering is not about wearing more — it's about wearing thoughtfully."</p></blockquote>
+<div class="post-cta"><h3>Shop Necklaces for Layering</h3><p>Explore our curated range of chains and pendants designed for layering.</p><a href="/shop?category=necklaces" class="btn btn-gold">Shop Necklaces</a></div>`
+  }
+};
+
+async function loadPost() {
+  const slug = window.location.pathname.split('/').pop();
+  let post = null;
+
+  try {
+    const res = await fetch(`/api/seo/blog/${slug}`);
+    if (res.ok) post = await res.json();
+  } catch(_) {}
+
+  if (!post) post = STATIC_POSTS[slug];
+
+  if (!post) {
+    document.getElementById('postContainer').innerHTML = `
+      <div style="text-align:center;padding:100px 4%;color:var(--muted)">
+        <p style="font-size:32px;margin-bottom:16px">✦</p>
+        <p style="font-size:14px">Post not found.</p>
+        <a href="/blog" style="display:inline-block;margin-top:20px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark)">← Back to Journal</a>
+      </div>`;
+    return;
+  }
+
+  // Update SEO tags
+  const pageUrl = `https://lumierejewellery.pk/blog/${slug}`;
+  const img = post.featured_image || post.image || 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=1200&q=85';
+  document.title = `${post.title} — Lumière Fine Jewellery`;
+  document.querySelector('meta[name="description"]').setAttribute('content', post.meta_description || post.excerpt || '');
+  document.getElementById('og-title').setAttribute('content', post.title);
+  document.getElementById('og-desc').setAttribute('content', post.excerpt || '');
+  document.getElementById('og-image').setAttribute('content', img);
+  document.getElementById('og-url').setAttribute('content', pageUrl);
+  document.getElementById('tw-title').setAttribute('content', post.title);
+  document.getElementById('tw-desc').setAttribute('content', post.excerpt || '');
+  document.getElementById('tw-image').setAttribute('content', img);
+  document.getElementById('canonical-link').setAttribute('href', pageUrl);
+
+  // JSON-LD Article schema
+  const ld = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.excerpt || '',
+    "image": img,
+    "url": pageUrl,
+    "datePublished": post.created_at || '',
+    "dateModified": post.updated_at || post.created_at || '',
+    "author": { "@type": "Organization", "name": post.author || 'Lumière Team' },
+    "publisher": { "@type": "Organization", "name": "Lumière Fine Jewellery", "url": "https://lumierejewellery.pk/" },
+    "keywords": post.focus_keyword || ''
+  };
+  const ldScript = document.createElement('script');
+  ldScript.type = 'application/ld+json';
+  ldScript.textContent = JSON.stringify(ld);
+  document.head.appendChild(ldScript);
+
+  const date = post.created_at ? new Date(post.created_at).toLocaleDateString('en-PK', { year:'numeric', month:'long', day:'numeric' }) : '';
+  const shareText = encodeURIComponent(post.title + ' — ' + pageUrl);
+
+  document.getElementById('postContainer').innerHTML = `
+    <article itemscope itemtype="https://schema.org/BlogPosting">
+      <meta itemprop="datePublished" content="${post.created_at || ''}">
+      <meta itemprop="author" content="${post.author || 'Lumière Team'}">
+      <div class="post-hero">
+        ${img ? `<img class="post-hero-img" src="${img}" alt="${post.title.replace(/"/g,'&quot;')}" loading="eager" fetchpriority="high">` : ''}
+        <div class="post-hero-content">
+          <div class="post-tag">${post.tag || post.focus_keyword || 'Journal'}</div>
+          <h1 itemprop="headline">${post.title}</h1>
+          <div class="post-meta">
+            <span>${date}</span>
+            <span>·</span>
+            <span>${post.read_time || 5} min read</span>
+            <span>·</span>
+            <span>By ${post.author || 'Lumière Team'}</span>
+          </div>
+        </div>
+      </div>
+      <div class="post-body" itemprop="articleBody">
+        <p style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:var(--dark);line-height:1.6;margin-bottom:32px;font-style:italic">${post.excerpt || ''}</p>
+        ${post.content || ''}
+        <div class="share-section">
+          <span class="share-label">Share:</span>
+          <a href="https://wa.me/?text=${shareText}" target="_blank" rel="noopener" class="share-btn-post" style="background:#25D366">WhatsApp</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageUrl)}" target="_blank" rel="noopener" class="share-btn-post" style="background:#1877F2">Facebook</a>
+          <a href="https://twitter.com/intent/tweet?text=${shareText}" target="_blank" rel="noopener" class="share-btn-post" style="background:#000">X / Twitter</a>
+          <button onclick="navigator.clipboard.writeText('${pageUrl}').then(()=>alert('Link copied!'))" style="background:var(--cream);border:1px solid var(--border);color:var(--muted);padding:8px 16px;font-size:11px;cursor:pointer;font-family:'Jost',sans-serif">Copy Link</button>
+        </div>
+      </div>
+    </article>`;
+}
+
+loadPost();
+
+(async () => {
+  try {
+    const res = await fetch('/api/auth/me');
+    const data = await res.json();
+    if (data.user && data.user.role === 'admin') document.getElementById('adminNavItem').style.display = '';
+  } catch(e) {}
+})();
+</script>
+<script src="/js/chatbot-widget.js"></script>
+</body>
+</html>

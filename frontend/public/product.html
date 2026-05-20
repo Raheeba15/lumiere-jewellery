@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product — Lumière Fine Jewellery</title>
+<meta name="description" content="Handcrafted fine jewellery at Lumière — shop our curated collection of gold and silver pieces.">
+<meta name="robots" content="index, follow">
+<meta property="og:site_name" content="Lumière Fine Jewellery">
+<meta property="og:type" content="product">
+<meta property="og:title" id="og-title" content="Product — Lumière">
+<meta property="og:description" id="og-desc" content="Handcrafted fine jewellery from Lumière.">
+<meta property="og:image" id="og-image" content="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=1200&q=85">
+<meta property="og:url" id="og-url" content="">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" id="tw-title" content="Product — Lumière">
+<meta name="twitter:description" id="tw-desc" content="Handcrafted fine jewellery from Lumière.">
+<meta name="twitter:image" id="tw-image" content="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=1200&q=85">
+<link rel="canonical" id="canonical-link" href="">
+<link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+.product-layout{display:grid;grid-template-columns:1fr 1fr;gap:60px;padding:60px 4%}
+.product-main-img{background:linear-gradient(135deg,#F5EFE0,#EDE3CC);aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:160px;position:relative;overflow:hidden}
+.product-main-img img{width:100%;height:100%;object-fit:cover;display:block}
+.product-main-img .ph-emoji{font-size:160px;line-height:1}
+.product-details{padding-top:10px}
+.breadcrumb{font-size:11px;color:var(--muted);margin-bottom:20px;font-weight:300}
+.breadcrumb a{color:var(--muted);transition:color 0.2s}
+.breadcrumb a:hover{color:var(--gold-dark)}
+.product-detail-cat{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dark);font-weight:400;margin-bottom:10px}
+.product-detail-name{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:var(--dark);line-height:1.2;margin-bottom:16px}
+.product-detail-price{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:500;color:var(--dark);margin-bottom:24px}
+.product-detail-desc{font-size:13px;color:var(--muted);line-height:1.9;font-weight:300;margin-bottom:28px;border-left:2px solid var(--gold);padding-left:16px}
+.product-meta-table{width:100%;margin-bottom:28px}
+.product-meta-table tr td{padding:8px 0;font-size:12px;border-bottom:1px solid var(--border)}
+.product-meta-table tr td:first-child{color:var(--muted);font-weight:300;width:100px;font-size:11px;letter-spacing:1px;text-transform:uppercase}
+.product-meta-table tr td:last-child{color:var(--dark);font-weight:400}
+.qty-selector{display:flex;align-items:center;gap:0;margin-bottom:20px}
+.qty-btn{width:40px;height:40px;background:var(--card-bg);border:1px solid var(--border);cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
+.qty-btn:hover{background:var(--dark);color:var(--gold)}
+.qty-val{width:52px;height:40px;border:1px solid var(--border);border-left:none;border-right:none;text-align:center;font-family:'Jost',sans-serif;font-size:14px;font-weight:400;background:var(--card-bg);color:var(--text)}
+.add-main-btn{width:100%;padding:16px;font-size:11px;letter-spacing:3px;text-transform:uppercase;background:var(--dark);color:var(--gold);border:none;cursor:pointer;font-family:'Jost',sans-serif;font-weight:400;transition:all 0.2s;margin-bottom:12px}
+.add-main-btn:hover{background:var(--gold);color:var(--dark)}
+.wishlist-main-btn{width:100%;padding:14px;font-size:11px;letter-spacing:3px;text-transform:uppercase;background:transparent;color:var(--muted);border:1px solid var(--border);cursor:pointer;font-family:'Jost',sans-serif;font-weight:300;transition:all 0.2s}
+.wishlist-main-btn:hover{border-color:var(--gold);color:var(--gold-dark)}
+.related-section{padding:60px 4%;background:#F5F0E8}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px}
+.stock-badge{display:inline-block;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;margin-bottom:20px}
+.in-stock{background:#D4EDDA;color:#155724}
+.low-stock{background:#FFF3CD;color:#856404}
+.out-stock{background:#F8D7DA;color:#721C24}
+@media(max-width:768px){.product-layout{grid-template-columns:1fr;gap:30px}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="logo">Lu<span>miè</span>re</a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li><li><a href="/shop" class="active">Shop</a></li><li><a href="/blog">Journal</a></li><li><a href="/account">Account</a></li>
+    <li id="adminNavItem" style="display:none"><a href="/admin" style="color:var(--gold)">Admin ✦</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="/account" class="nav-icon-btn">👤</a>
+    <button class="nav-cart-btn" onclick="window.location='/cart'">Cart <span class="cart-count nav-badge">0</span></button>
+  </div>
+</nav>
+
+<div class="product-layout" id="productLayout">
+  <div style="text-align:center;padding:80px;color:var(--muted);grid-column:1/-1">Loading...</div>
+</div>
+
+<div class="related-section" id="relatedSection" style="display:none">
+  <div class="section-header">
+    <span class="section-tag">You May Also Like</span>
+    <h2 class="section-title"><em>Related</em> Pieces</h2>
+  </div>
+  <div class="related-grid" id="relatedGrid"></div>
+</div>
+
+<footer style="background:var(--dark);padding:30px 4%;text-align:center;border-top:1px solid rgba(201,168,76,0.15)">
+  <p style="color:rgba(255,255,255,0.4);font-size:11px;font-weight:300">© 2025 Lumière Fine Jewellery</p>
+</footer>
+
+<script src="/js/app.js"></script>
+<script>
+let currentProduct = null;
+let qty = 1;
+
+async function loadProduct() {
+  const id = window.location.pathname.split('/').pop();
+  const data = await API.get(`/api/products/${id}`);
+  if (!data.product) { document.getElementById('productLayout').innerHTML = '<p style="text-align:center;padding:80px;color:var(--muted);grid-column:1/-1">Product not found</p>'; return; }
+  currentProduct = data.product;
+  document.title = `${data.product.name} — Lumière`;
+
+  const p = data.product;
+  const stockBadge = p.stock > 5 ? `<span class="stock-badge in-stock">✓ In Stock</span>` : p.stock > 0 ? `<span class="stock-badge low-stock">Only ${p.stock} left</span>` : `<span class="stock-badge out-stock">Out of Stock</span>`;
+
+  const heroImg = p.image_url
+    ? `<img src="${p.image_url.replace(/"/g, '&quot;')}" alt="${(p.name + ' — Lumière Fine Jewellery').replace(/"/g, '&quot;')}" loading="eager" fetchpriority="high">`
+    : `<span class="ph-emoji">${p.emoji || '💎'}</span>`;
+
+  document.getElementById('productLayout').innerHTML = `
+    <div>
+      <div class="product-main-img">${heroImg}</div>
+    </div>
+    <div class="product-details">
+      <div class="breadcrumb"><a href="/">Home</a> / <a href="/shop">Shop</a> / <a href="/shop?category=${p.category_slug}">${p.category_name}</a> / ${p.name}</div>
+      <div class="product-detail-cat">${p.category_name}</div>
+      <h1 class="product-detail-name">${p.name}</h1>
+      ${stockBadge}
+      <div class="product-detail-price">
+        ${p.old_price ? `<span class="price-old" style="font-size:20px;margin-right:10px">Rs ${Number(p.old_price).toLocaleString()}</span>` : ''}
+        Rs ${Number(p.price).toLocaleString()}
+      </div>
+      <p class="product-detail-desc">${p.description}</p>
+      <table class="product-meta-table">
+        <tr><td>Material</td><td>${p.material || '—'}</td></tr>
+        <tr><td>Stone</td><td>${p.stone || '—'}</td></tr>
+        <tr><td>SKU</td><td>${p.sku || '—'}</td></tr>
+      </table>
+      <div class="qty-selector">
+        <button class="qty-btn" onclick="changeQty(-1)">−</button>
+        <input class="qty-val" type="number" id="qtyInput" value="1" min="1" max="${p.stock}" readonly>
+        <button class="qty-btn" onclick="changeQty(1)">+</button>
+        <span style="margin-left:14px;font-size:12px;color:var(--muted);font-weight:300">${p.stock} available</span>
+      </div>
+      <button class="add-main-btn" onclick="addToCart()" ${p.stock === 0 ? 'disabled style="opacity:0.5;cursor:not-allowed"' : ''}>
+        ${p.stock === 0 ? 'Out of Stock' : 'Add to Cart ✦'}
+      </button>
+      <button class="wishlist-main-btn" onclick="toggleWishlistMain()">♡ Add to Wishlist</button>
+      <div class="share-bar" style="display:flex;gap:8px;margin-top:16px;align-items:center">
+        <span style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:400">Share:</span>
+        <a href="https://wa.me/?text=${encodeURIComponent(p.name + ' — Rs ' + Number(p.price).toLocaleString() + ' | ' + window.location.href)}" target="_blank" rel="noopener" class="share-btn" style="background:#25D366;color:#fff;padding:7px 14px;font-size:11px;text-decoration:none;letter-spacing:1px;display:inline-flex;align-items:center;gap:5px">WhatsApp</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}" target="_blank" rel="noopener" class="share-btn" style="background:#1877F2;color:#fff;padding:7px 14px;font-size:11px;text-decoration:none;letter-spacing:1px">Facebook</a>
+        <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(p.name + ' — ' + window.location.href)}" target="_blank" rel="noopener" class="share-btn" style="background:#000;color:#fff;padding:7px 14px;font-size:11px;text-decoration:none;letter-spacing:1px">X / Twitter</a>
+        <button onclick="navigator.clipboard.writeText(window.location.href).then(()=>Toast.show('Link copied ✦'))" style="background:var(--cream);border:1px solid var(--border);color:var(--muted);padding:7px 14px;font-size:11px;cursor:pointer;font-family:'Jost',sans-serif;letter-spacing:1px">Copy Link</button>
+      </div>
+    </div>
+  `;
+
+  // ── Dynamic SEO injection ──
+  const pageUrl = `https://lumierejewellery.pk/product/${p.id}`;
+  const imgUrl = p.image_url || 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=1200&q=85';
+  const desc = `${p.name} — ${p.description ? p.description.slice(0,140) : 'Handcrafted fine jewellery'} | Rs ${Number(p.price).toLocaleString()} | Lumière Fine Jewellery`;
+  document.title = `${p.name} — Lumière Fine Jewellery`;
+  document.querySelector('meta[name="description"]').setAttribute('content', desc);
+  document.getElementById('og-title').setAttribute('content', `${p.name} — Lumière`);
+  document.getElementById('og-desc').setAttribute('content', desc);
+  document.getElementById('og-image').setAttribute('content', imgUrl);
+  document.getElementById('og-url').setAttribute('content', pageUrl);
+  document.getElementById('tw-title').setAttribute('content', `${p.name} — Lumière`);
+  document.getElementById('tw-desc').setAttribute('content', desc);
+  document.getElementById('tw-image').setAttribute('content', imgUrl);
+  document.getElementById('canonical-link').setAttribute('href', pageUrl);
+  // JSON-LD Product schema
+  const ld = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": p.name,
+    "description": p.description || '',
+    "image": imgUrl,
+    "sku": p.sku || `LUM-${p.id}`,
+    "brand": { "@type": "Brand", "name": "Lumière Fine Jewellery" },
+    "offers": {
+      "@type": "Offer",
+      "url": pageUrl,
+      "priceCurrency": "PKR",
+      "price": p.price,
+      "availability": p.stock > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+      "seller": { "@type": "Organization", "name": "Lumière Fine Jewellery" }
+    }
+  };
+  const ldScript = document.createElement('script');
+  ldScript.type = 'application/ld+json';
+  ldScript.textContent = JSON.stringify(ld);
+  document.head.appendChild(ldScript);
+
+  if (data.related?.length) {
+    document.getElementById('relatedSection').style.display = 'block';
+    document.getElementById('relatedGrid').innerHTML = data.related.map(p => renderProductCard(p)).join('');
+  }
+}
+
+function changeQty(delta) {
+  if (!currentProduct) return;
+  qty = Math.max(1, Math.min(currentProduct.stock || 1, qty + delta));
+  document.getElementById('qtyInput').value = qty;
+}
+
+function addToCart() {
+  if (!currentProduct) return;
+  for (let i = 0; i < qty; i++) Cart.add(currentProduct);
+  Toast.show(`${qty} item${qty > 1 ? 's' : ''} added to cart ✦`);
+}
+
+async function toggleWishlistMain() {
+  if (!Auth.user) { window.location.href = '/account'; return; }
+  const data = await API.post('/api/products/wishlist/toggle', { product_id: currentProduct.id });
+  Toast.show(data.wishlisted ? 'Added to wishlist ♡' : 'Removed from wishlist');
+}
+
+loadProduct();
+</script>
+<script>
+(async () => {
+  try {
+    const res = await fetch('/api/auth/me');
+    const data = await res.json();
+    if (data.user && data.user.role === 'admin') {
+      const el = document.getElementById('adminNavItem');
+      if (el) el.style.display = '';
+    }
+  } catch(e) {}
+})();
+</script>
+<script src="/js/chatbot-widget.js"></script>
+</body>
+</html>

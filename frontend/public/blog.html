@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jewellery Blog — Lumière | Style Guides, Care Tips & Trends</title>
+<meta name="description" content="Read Lumière's jewellery blog — expert style guides, gold & silver care tips, Pakistani wedding jewellery trends, and how to choose the perfect piece.">
+<meta name="keywords" content="jewellery blog pakistan, gold care tips, silver jewellery guide, wedding jewellery trends, jewellery style guide lahore, how to buy fine jewellery">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://lumierejewellery.pk/blog">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumière Fine Jewellery">
+<meta property="og:title" content="Jewellery Blog — Lumière | Style Guides & Care Tips">
+<meta property="og:description" content="Expert jewellery guides, care tips, and trend reports from Lumière's fine jewellery artisans.">
+<meta property="og:url" content="https://lumierejewellery.pk/blog">
+<meta property="og:image" content="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=1200&q=85&auto=format&fit=crop">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Jewellery Blog — Lumière">
+<meta name="twitter:description" content="Expert jewellery guides, care tips, and trend reports.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=1200&q=85&auto=format&fit=crop">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Lumière Jewellery Blog","description":"Expert guides, care tips and trend reports from Lumière Fine Jewellery","url":"https://lumierejewellery.pk/blog","publisher":{"@type":"Organization","name":"Lumière Fine Jewellery","url":"https://lumierejewellery.pk/"}}</script>
+<link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+.blog-hero{background:var(--dark);padding:64px 4%;text-align:center}
+.blog-hero h1{font-family:'Cormorant Garamond',serif;font-size:54px;font-weight:300;color:#FAF0DC;line-height:1.1}
+.blog-hero h1 em{color:var(--gold-light);font-style:italic}
+.blog-hero p{color:rgba(255,255,255,0.5);font-size:13px;font-weight:300;margin-top:12px;max-width:480px;margin-left:auto;margin-right:auto}
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:28px;padding:56px 4%}
+.blog-card{background:var(--card-bg,#FFFDF9);border:1px solid var(--border);overflow:hidden;cursor:pointer;transition:transform 0.25s,box-shadow 0.25s}
+.blog-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(26,20,16,0.10)}
+.blog-card-img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.blog-card-img-ph{background:linear-gradient(135deg,#F5EFE0,#EDE3CC);aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;font-size:52px}
+.blog-card-body{padding:22px 24px 28px}
+.blog-tag{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dark);font-weight:400;margin-bottom:8px}
+.blog-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--dark);line-height:1.3;margin-bottom:10px}
+.blog-excerpt{font-size:12px;color:var(--muted);font-weight:300;line-height:1.8;margin-bottom:16px}
+.blog-meta{font-size:10px;color:var(--muted);font-weight:300;letter-spacing:1px;display:flex;gap:14px;align-items:center}
+.blog-read-more{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);font-weight:400;margin-top:14px;display:inline-block;transition:color 0.2s}
+.blog-card:hover .blog-read-more{color:var(--dark)}
+.blog-cats{display:flex;gap:8px;flex-wrap:wrap;padding:0 4% 32px;justify-content:center}
+.cat-pill{padding:6px 18px;border:1px solid var(--border);font-size:10px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;font-family:'Jost',sans-serif;color:var(--muted);background:var(--card-bg,#fff);transition:all 0.2s}
+.cat-pill:hover,.cat-pill.active{background:var(--dark);color:var(--gold);border-color:var(--dark)}
+.blog-empty{text-align:center;padding:80px 20px;color:var(--muted);grid-column:1/-1}
+@media(max-width:768px){.blog-hero h1{font-size:38px}.blog-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="logo">Lu<span>miè</span>re</a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/shop">Shop</a></li>
+    <li><a href="/blog" class="active">Journal</a></li>
+    <li><a href="/account">Account</a></li>
+    <li id="adminNavItem" style="display:none"><a href="/admin" style="color:var(--gold)">Admin ✦</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="/account" class="nav-icon-btn auth-hide" title="Login">👤</a>
+    <a href="/account" class="nav-icon-btn auth-show" title="My Account">👤 <span class="user-name"></span></a>
+    <button class="nav-cart-btn" onclick="window.location='/cart'">Cart <span class="cart-count nav-badge">0</span></button>
+  </div>
+</nav>
+
+<div class="blog-hero">
+  <h1>The Lumière <em>Journal</em></h1>
+  <p>Style guides, care tips, jewellery trends and stories from our artisans in Lahore.</p>
+</div>
+
+<div class="blog-cats" id="catFilters">
+  <div class="cat-pill active" onclick="filterPosts(null, this)">All</div>
+  <div class="cat-pill" onclick="filterPosts('Style Guide', this)">Style Guide</div>
+  <div class="cat-pill" onclick="filterPosts('Care Tips', this)">Care Tips</div>
+  <div class="cat-pill" onclick="filterPosts('Trends', this)">Trends</div>
+  <div class="cat-pill" onclick="filterPosts('Gifting', this)">Gifting</div>
+</div>
+
+<div class="blog-grid" id="blogGrid">
+  <div class="blog-empty"><p>Loading posts…</p></div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="logo" style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;color:var(--gold-light);letter-spacing:4px;text-transform:uppercase">Lu<em style="font-style:italic">miè</em>re</span>
+      <p style="margin-top:14px">Handcrafted fine jewellery from Lahore, Pakistan.</p>
+    </div>
+    <div class="footer-col"><h4>Shop</h4><ul>
+      <li><a href="/shop?category=bracelets">Bracelets</a></li>
+      <li><a href="/shop?category=rings">Rings</a></li>
+      <li><a href="/shop?category=bangles">Bangles</a></li>
+      <li><a href="/shop?category=necklaces">Necklaces</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Journal</h4><ul>
+      <li><a href="/blog">All Posts</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Help</h4><ul>
+      <li><a href="#">Shipping Info</a></li>
+      <li><a href="#">Returns</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Lumière Fine Jewellery. All rights reserved.</p>
+    <p style="color:var(--gold);font-size:11px">✦ Crafted with love in Lahore</p>
+  </div>
+</footer>
+
+<script src="/js/app.js"></script>
+<script>
+const STATIC_POSTS = [
+  {
+    id: 'how-to-care-for-925-sterling-silver',
+    slug: 'how-to-care-for-925-sterling-silver',
+    title: 'How to Care for Your 925 Sterling Silver Jewellery',
+    excerpt: 'Sterling silver naturally tarnishes over time — but with the right care routine, your pieces can stay brilliant for decades. Here\'s everything you need to know.',
+    focus_keyword: '925 sterling silver care',
+    tag: 'Care Tips',
+    read_time: 5,
+    author: 'Lumière Team',
+    image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&q=80&auto=format&fit=crop',
+    created_at: '2025-01-15'
+  },
+  {
+    id: 'pakistani-wedding-jewellery-guide',
+    slug: 'pakistani-wedding-jewellery-guide',
+    title: 'The Ultimate Pakistani Wedding Jewellery Guide for 2025',
+    excerpt: 'From mehndi to barat, discover how to style traditional and contemporary jewellery sets for each function — including the must-have pieces every bride needs.',
+    focus_keyword: 'Pakistani wedding jewellery',
+    tag: 'Style Guide',
+    read_time: 8,
+    author: 'Lumière Team',
+    image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&q=80&auto=format&fit=crop',
+    created_at: '2025-02-10'
+  },
+  {
+    id: 'gold-vs-silver-jewellery-which-to-choose',
+    slug: 'gold-vs-silver-jewellery-which-to-choose',
+    title: 'Gold vs Silver Jewellery: Which Should You Choose?',
+    excerpt: 'Both gold and silver have timeless appeal — but they suit different skin tones, outfits, and occasions. We break down everything to help you decide.',
+    focus_keyword: 'gold vs silver jewellery',
+    tag: 'Style Guide',
+    read_time: 6,
+    author: 'Lumière Team',
+    image: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80&auto=format&fit=crop',
+    created_at: '2025-03-05'
+  },
+  {
+    id: 'top-jewellery-trends-pakistan-2025',
+    slug: 'top-jewellery-trends-pakistan-2025',
+    title: 'Top Jewellery Trends in Pakistan for 2025',
+    excerpt: 'From minimalist stackable rings to bold statement necklaces — the jewellery trends taking Pakistan by storm this year. Are you keeping up?',
+    focus_keyword: 'jewellery trends Pakistan 2025',
+    tag: 'Trends',
+    read_time: 4,
+    author: 'Lumière Team',
+    image: 'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=800&q=80&auto=format&fit=crop',
+    created_at: '2025-03-28'
+  },
+  {
+    id: 'jewellery-gifting-guide-eid',
+    slug: 'jewellery-gifting-guide-eid',
+    title: 'The Eid Jewellery Gifting Guide: Pieces She\'ll Treasure Forever',
+    excerpt: 'Eid is the perfect occasion to gift something timeless. Explore our curated guide to choosing jewellery that suits every personality and budget.',
+    focus_keyword: 'Eid jewellery gift Pakistan',
+    tag: 'Gifting',
+    read_time: 5,
+    author: 'Lumière Team',
+    image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=800&q=80&auto=format&fit=crop',
+    created_at: '2025-04-02'
+  },
+  {
+    id: 'how-to-layer-necklaces-like-a-pro',
+    slug: 'how-to-layer-necklaces-like-a-pro',
+    title: 'How to Layer Necklaces Like a Pro',
+    excerpt: 'The art of layering necklaces transforms any outfit. Learn the rules of chain lengths, mixing metals, and pairing pendant sizes for an effortlessly luxe look.',
+    focus_keyword: 'how to layer necklaces',
+    tag: 'Style Guide',
+    read_time: 5,
+    author: 'Lumière Team',
+    image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&q=80&auto=format&fit=crop',
+    created_at: '2025-04-20'
+  }
+];
+
+let activeFilter = null;
+let allPosts = [];
+
+async function loadBlog() {
+  // Try DB posts first, fall back to static
+  try {
+    const res = await fetch('/api/seo/blog');
+    const dbPosts = await res.json();
+    allPosts = dbPosts.length ? dbPosts : STATIC_POSTS;
+  } catch (_) {
+    allPosts = STATIC_POSTS;
+  }
+  renderPosts(allPosts);
+}
+
+function renderPosts(posts) {
+  const grid = document.getElementById('blogGrid');
+  if (!posts.length) {
+    grid.innerHTML = '<div class="blog-empty"><p style="font-size:13px">No posts found.</p></div>';
+    return;
+  }
+  grid.innerHTML = posts.map(p => {
+    const img = p.featured_image || p.image
+      ? `<img class="blog-card-img" src="${p.featured_image || p.image}" alt="${(p.title).replace(/"/g,'&quot;')}" loading="lazy">`
+      : `<div class="blog-card-img-ph">✍️</div>`;
+    const date = p.created_at ? new Date(p.created_at).toLocaleDateString('en-PK', { year:'numeric', month:'long', day:'numeric' }) : '';
+    return `
+      <article class="blog-card" onclick="window.location='/blog/${p.slug || p.id}'" itemscope itemtype="https://schema.org/BlogPosting">
+        <meta itemprop="datePublished" content="${p.created_at || ''}">
+        <meta itemprop="author" content="${p.author || 'Lumière Team'}">
+        ${img}
+        <div class="blog-card-body">
+          <div class="blog-tag">${p.tag || p.focus_keyword || 'Journal'}</div>
+          <h2 class="blog-title" itemprop="headline">${p.title}</h2>
+          <p class="blog-excerpt" itemprop="description">${p.excerpt || ''}</p>
+          <div class="blog-meta">
+            <span>${date}</span>
+            <span>·</span>
+            <span>${p.read_time || 5} min read</span>
+          </div>
+          <span class="blog-read-more">Read Article →</span>
+        </div>
+      </article>`;
+  }).join('');
+}
+
+function filterPosts(tag, el) {
+  document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  activeFilter = tag;
+  const filtered = tag ? allPosts.filter(p => (p.tag || p.focus_keyword || '').toLowerCase().includes(tag.toLowerCase())) : allPosts;
+  renderPosts(filtered);
+}
+
+loadBlog();
+
+(async () => {
+  try {
+    const res = await fetch('/api/auth/me');
+    const data = await res.json();
+    if (data.user && data.user.role === 'admin') document.getElementById('adminNavItem').style.display = '';
+  } catch(e) {}
+})();
+</script>
+<script src="/js/chatbot-widget.js"></script>
+</body>
+</html>

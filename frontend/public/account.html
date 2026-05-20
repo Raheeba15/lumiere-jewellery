@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Account — Lumière</title>
+<link rel="stylesheet" href="/css/style.css">
+<style>
+.auth-section{max-width:480px;margin:80px auto;padding:0 24px}
+.auth-card{background:var(--card-bg);border:1px solid var(--border);padding:40px}
+.auth-title{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--dark);margin-bottom:6px}
+.auth-subtitle{font-size:12px;color:var(--muted);font-weight:300;margin-bottom:32px}
+.auth-tabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:28px}
+.auth-tab{flex:1;padding:12px;text-align:center;cursor:pointer;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:300;border-bottom:2px solid transparent;transition:all 0.2s;background:none;border-left:none;border-right:none;border-top:none;font-family:'Jost',sans-serif}
+.auth-tab.active{color:var(--gold-dark);border-bottom-color:var(--gold)}
+.auth-error{background:#FFF0F0;border:1px solid #F5C6CB;color:#721C24;padding:10px 14px;font-size:12px;margin-bottom:16px;display:none}
+.auth-error.show{display:block}
+
+/* ACCOUNT DASHBOARD */
+.account-layout{display:grid;grid-template-columns:240px 1fr;gap:40px;padding:48px 4%}
+.account-sidebar{background:var(--card-bg);border:1px solid var(--border);padding:24px;align-self:start;position:sticky;top:80px}
+.account-nav-item{display:flex;align-items:center;gap:12px;padding:12px 14px;cursor:pointer;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);font-weight:300;transition:all 0.2s;border-left:2px solid transparent;margin-bottom:2px}
+.account-nav-item:hover{color:var(--dark);background:rgba(201,168,76,0.05)}
+.account-nav-item.active{color:var(--gold-dark);border-left-color:var(--gold);background:rgba(201,168,76,0.06);font-weight:400}
+.account-nav-icon{font-size:16px;width:20px;text-align:center}
+.account-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--dark);margin-bottom:4px}
+.account-email{font-size:11px;color:var(--muted);font-weight:300;margin-bottom:20px;border-bottom:1px solid var(--border);padding-bottom:20px}
+.section-card{background:var(--card-bg);border:1px solid var(--border);padding:28px;margin-bottom:20px}
+.section-card-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--dark);margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+.order-row{display:grid;grid-template-columns:auto 1fr auto auto;gap:16px;padding:16px 0;border-bottom:1px solid var(--border);align-items:center}
+.order-row:last-child{border:none}
+.order-id{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:var(--dark)}
+.order-date{font-size:11px;color:var(--muted);font-weight:300;margin-top:2px}
+.order-items-preview{font-size:12px;color:var(--muted);font-weight:300}
+.order-total{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;color:var(--dark)}
+.wishlist-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+.page-hero{background:var(--dark);padding:40px 4%}
+.page-hero h1{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:#FAF0DC}
+.page-hero h1 em{font-style:italic;color:var(--gold-light)}
+.logout-btn{background:none;border:1px solid var(--border);color:var(--muted);padding:8px 18px;font-family:'Jost',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all 0.2s;margin-top:16px;width:100%}
+.logout-btn:hover{background:var(--red);color:white;border-color:var(--red)}
+.empty-state{text-align:center;padding:60px 20px;color:var(--muted)}
+.empty-state-icon{font-size:48px;margin-bottom:16px;opacity:0.3}
+@media(max-width:768px){.account-layout{grid-template-columns:1fr}.account-sidebar{position:static}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="logo">Lu<span>miè</span>re</a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li><li><a href="/shop">Shop</a></li><li><a href="/account">Account</a></li>
+    <li id="adminNavItem" style="display:none"><a href="/admin" style="color:var(--gold)">Admin ✦</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="nav-cart-btn" onclick="window.location='/cart'">Cart <span class="cart-count nav-badge">0</span></button>
+  </div>
+</nav>
+
+<!-- AUTH SECTION (shown when logged out) -->
+<div id="authSection" style="display:none">
+  <div class="auth-section">
+    <div class="auth-card">
+      <h1 class="auth-title">Welcome</h1>
+      <p class="auth-subtitle">Sign in to your account or create a new one</p>
+      <div class="auth-tabs">
+        <button class="auth-tab active" onclick="switchTab('login')">Sign In</button>
+        <button class="auth-tab" onclick="switchTab('register')">Create Account</button>
+      </div>
+      <div id="authError" class="auth-error"></div>
+
+      <!-- LOGIN FORM -->
+      <div id="loginForm">
+        <div class="form-group"><label class="form-label">Email Address</label><input type="email" class="form-input" id="loginEmail" placeholder="fatima@example.com"></div>
+        <div class="form-group"><label class="form-label">Password</label><input type="password" class="form-input" id="loginPassword" placeholder="••••••••"></div>
+        <button class="btn btn-gold" style="width:100%;padding:14px;margin-top:8px" onclick="doLogin()">Sign In</button>
+        <p style="text-align:center;font-size:11px;color:var(--muted);margin-top:16px;font-weight:300">Demo: fatima@example.com / demo123</p>
+      </div>
+
+      <!-- REGISTER FORM -->
+      <div id="registerForm" style="display:none">
+        <div class="form-group"><label class="form-label">Full Name</label><input type="text" class="form-input" id="regName" placeholder="Fatima Khan"></div>
+        <div class="form-group"><label class="form-label">Email Address</label><input type="email" class="form-input" id="regEmail" placeholder="fatima@example.com"></div>
+        <div class="form-group"><label class="form-label">Phone Number</label><input type="tel" class="form-input" id="regPhone" placeholder="0300 1234567"></div>
+        <div class="form-group"><label class="form-label">Password</label><input type="password" class="form-input" id="regPassword" placeholder="Minimum 6 characters"></div>
+        <button class="btn btn-gold" style="width:100%;padding:14px;margin-top:8px" onclick="doRegister()">Create Account</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ACCOUNT DASHBOARD (shown when logged in) -->
+<div id="accountSection" style="display:none">
+  <div class="page-hero">
+    <h1>My <em>Account</em></h1>
+  </div>
+  <div class="account-layout">
+    <aside class="account-sidebar">
+      <div class="account-name" id="sidebarName"></div>
+      <div class="account-email" id="sidebarEmail"></div>
+      <div class="account-nav-item active" onclick="showTab('orders')"><span class="account-nav-icon">📦</span> My Orders</div>
+      <div class="account-nav-item" onclick="showTab('wishlist')"><span class="account-nav-icon">♡</span> Wishlist</div>
+      <div class="account-nav-item" onclick="showTab('profile')"><span class="account-nav-icon">👤</span> Profile</div>
+      <button class="logout-btn" onclick="Auth.logout()">Sign Out</button>
+    </aside>
+    <main id="accountMain"></main>
+  </div>
+</div>
+
+<script src="/js/app.js"></script>
+<script>
+function switchTab(tab) {
+  document.querySelectorAll('.auth-tab').forEach((t,i)=>t.classList.toggle('active',i===(tab==='login'?0:1)));
+  document.getElementById('loginForm').style.display = tab === 'login' ? '' : 'none';
+  document.getElementById('registerForm').style.display = tab === 'register' ? '' : 'none';
+  document.getElementById('authError').classList.remove('show');
+}
+
+async function doLogin() {
+  const email = document.getElementById('loginEmail').value;
+  const password = document.getElementById('loginPassword').value;
+  const data = await API.post('/api/auth/login', { email, password });
+  if (data.error) { showAuthError(data.error); return; }
+  Auth.user = data.user;
+  initAccountPage();
+}
+
+async function doRegister() {
+  const name = document.getElementById('regName').value;
+  const email = document.getElementById('regEmail').value;
+  const phone = document.getElementById('regPhone').value;
+  const password = document.getElementById('regPassword').value;
+  if (!name || !email || !password) { showAuthError('Please fill all required fields'); return; }
+  const data = await API.post('/api/auth/register', { name, email, phone, password });
+  if (data.errors) { showAuthError(data.errors[0].msg); return; }
+  if (data.error) { showAuthError(data.error); return; }
+  Auth.user = data.user;
+  initAccountPage();
+}
+
+function showAuthError(msg) {
+  const el = document.getElementById('authError');
+  el.textContent = msg;
+  el.classList.add('show');
+}
+
+function initAccountPage() {
+  if (!Auth.user) {
+    document.getElementById('authSection').style.display = '';
+    document.getElementById('accountSection').style.display = 'none';
+    return;
+  }
+  document.getElementById('authSection').style.display = 'none';
+  document.getElementById('accountSection').style.display = '';
+  document.getElementById('sidebarName').textContent = Auth.user.name;
+  document.getElementById('sidebarEmail').textContent = Auth.user.email;
+  const hash = window.location.hash.replace('#','') || 'orders';
+  showTab(hash);
+}
+
+function showTab(tab) {
+  document.querySelectorAll('.account-nav-item').forEach(el => el.classList.remove('active'));
+  const tabs = ['orders','wishlist','profile'];
+  const idx = tabs.indexOf(tab);
+  if (idx >= 0) document.querySelectorAll('.account-nav-item')[idx].classList.add('active');
+  if (tab === 'orders') loadOrders();
+  else if (tab === 'wishlist') loadWishlist();
+  else if (tab === 'profile') loadProfile();
+}
+
+async function loadOrders() {
+  document.getElementById('accountMain').innerHTML = '<div style="padding:40px;text-align:center;color:var(--muted)">Loading...</div>';
+  const data = await API.get('/api/orders/mine');
+  const orders = data.orders || [];
+  const statusMap = {pending:'Pending',processing:'Processing',shipped:'Shipped',delivered:'Delivered',cancelled:'Cancelled'};
+  document.getElementById('accountMain').innerHTML = `
+    <div class="section-card">
+      <div class="section-card-title">My Orders</div>
+      ${!orders.length ? `<div class="empty-state"><div class="empty-state-icon">📦</div><p>No orders yet</p><a href="/shop" class="btn btn-dark btn-sm" style="margin-top:16px">Start Shopping</a></div>` :
+      orders.map(o => `
+        <div class="order-row">
+          <div>
+            <div class="order-id">Order #${o.id}</div>
+            <div class="order-date">${new Date(o.created_at).toLocaleDateString('en-PK',{day:'numeric',month:'short',year:'numeric'})}</div>
+          </div>
+          <div class="order-items-preview">${o.items.map(i=>i.name).join(', ')}</div>
+          <span class="status-badge status-${o.status}">${statusMap[o.status]||o.status}</span>
+          <div class="order-total">Rs ${Number(o.total).toLocaleString()}</div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+}
+
+async function loadWishlist() {
+  document.getElementById('accountMain').innerHTML = '<div style="padding:40px;text-align:center;color:var(--muted)">Loading...</div>';
+  const data = await API.get('/api/products/wishlist/mine');
+  const products = data.products || [];
+  document.getElementById('accountMain').innerHTML = `
+    <div class="section-card">
+      <div class="section-card-title">My Wishlist</div>
+      ${!products.length ? `<div class="empty-state"><div class="empty-state-icon">♡</div><p>Your wishlist is empty</p><a href="/shop" class="btn btn-dark btn-sm" style="margin-top:16px">Browse Collection</a></div>` :
+      `<div class="wishlist-grid">${products.map(p => renderProductCard(p, products.map(x=>x.id))).join('')}</div>`}
+    </div>
+  `;
+}
+
+function loadProfile() {
+  const u = Auth.user || {};
+  document.getElementById('accountMain').innerHTML = `
+    <div class="section-card">
+      <div class="section-card-title">My Profile</div>
+      <div class="form-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div class="form-group"><label class="form-label">Full Name</label><input type="text" class="form-input" id="profName" value="${u.name||''}"></div>
+        <div class="form-group"><label class="form-label">Phone</label><input type="tel" class="form-input" id="profPhone" value="${u.phone||''}"></div>
+        <div class="form-group" style="grid-column:1/-1"><label class="form-label">Delivery Address</label><textarea class="form-input" id="profAddress" rows="2">${u.address||''}</textarea></div>
+      </div>
+      <button class="btn btn-dark btn-sm" style="margin-top:4px" onclick="saveProfile()">Save Changes</button>
+    </div>
+    <div class="section-card">
+      <div class="section-card-title">Change Password</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
+        <div class="form-group"><label class="form-label">Current Password</label><input type="password" class="form-input" id="curPwd"></div>
+        <div class="form-group"><label class="form-label">New Password</label><input type="password" class="form-input" id="newPwd"></div>
+        <div class="form-group"><label class="form-label">&nbsp;</label><button class="btn btn-dark btn-sm" style="width:100%;margin-top:0" onclick="changePassword()">Update</button></div>
+      </div>
+    </div>
+  `;
+}
+
+async function saveProfile() {
+  const data = await API.put('/api/auth/profile', {
+    name: document.getElementById('profName').value,
+    phone: document.getElementById('profPhone').value,
+    address: document.getElementById('profAddress').value
+  });
+  if (data.success) { Auth.user = {...Auth.user, ...data.user}; document.getElementById('sidebarName').textContent = Auth.user.name; Toast.show('Profile updated ✦'); }
+  else Toast.show('Error saving profile');
+}
+
+async function changePassword() {
+  const data = await API.put('/api/auth/password', {
+    currentPassword: document.getElementById('curPwd').value,
+    newPassword: document.getElementById('newPwd').value
+  });
+  if (data.success) Toast.show('Password updated ✦');
+  else Toast.show(data.error || 'Error updating password');
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+  await Auth.load();
+  initAccountPage();
+});
+</script>
+
+<script>
+(async () => {
+  try {
+    const res = await fetch('/api/auth/me');
+    const data = await res.json();
+    if (data.user && data.user.role === 'admin') {
+      const el = document.getElementById('adminNavItem');
+      if (el) el.style.display = '';
+    }
+  } catch(e) {}
+})();
+</script>
+<script src="/js/chatbot-widget.js"></script>
+</body>
+</html>
