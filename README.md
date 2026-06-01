@@ -28,6 +28,7 @@ lumiere-jewellery-production-15f5.up.railway.app
 - JWT-based authentication with separate customer and admin roles
 - Wishlist, order tracking, and account management
 - Newsletter subscription and Journal/Blog section
+- Chatbot 
 
 ### Admin Panel
 - Real-time dashboard with revenue, orders, products, 
