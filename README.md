@@ -1,4 +1,4 @@
-<img width="1351" height="591" alt="Screenshot 8" src="https://github.com/user-attachments/assets/cebd127e-a65e-462f-be6d-030460bc3368" /><img width="1349" height="594" alt="Screenshot 9" src="https://github.com/user-attachments/assets/4389cfad-6e64-4178-989e-dc764306b299" /># Lumière Fine Jewellery 💎
+# Lumière Fine Jewellery 💎
 ### A Full-Stack E-Commerce Platform with AI-Powered Admin Intelligence
 
 A production-grade jewellery e-commerce web application built with 
